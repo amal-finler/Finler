@@ -1,0 +1,12 @@
+from O365 import Account
+credentials = ('my_client_id', 'my_client_secret')
+
+# the default protocol will be Microsoft Graph
+# the default authentication method will be "on behalf of a user"
+
+account = Account(credentials)
+if account.authenticate(scopes=['basic', 'message_all']):
+   print('Authenticated!')
+
+# 'basic' adds: 'offline_access' and 'https://graph.microsoft.com/User.Read'
+# 'message_all' adds: 'https://graph.microsoft.com/Mail.ReadWrite' and 'https://graph.microsoft.com/Mail.Send'
